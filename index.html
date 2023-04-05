@@ -24,42 +24,111 @@
   </head>
   <body>
     <!-- Rating state start -->
-    <div class="rating" id="rating-container">
-      <span class="circle">
-        <object
-          data="./images/icon-star.svg"
-          type="image/svg+xml"
-          title="Icon Star"
-        ></object>
-      </span>
+    <main class="main">
+      <form id="rating-container" class="rating">
+        <picture class="picture">
+          <img
+            class="picture__circle"
+            src="./images/icon-star.svg"
+            alt="Icon star"
+            draggable="false"
+          />
+        </picture>
 
-      <h1 class="rating__title">How did we do?</h1>
+        <h1 class="rating__title">How did we do?</h1>
 
-      <p class="rating__paragraph">
-        Please let us know how we did with your support request. All feedback is
-        appreciated to help us improve our offering!
-      </p>
+        <p class="rating__paragraph">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
 
-      <div class="rating__list">
-        <input class="circle circle--number" type="button" value="1" />
-        <input class="circle circle--number" type="button" value="2" />
+        <fieldset class="options">
+          <div class="options__option">
+            <input
+              id="choice1"
+              class="options__input"
+              type="radio"
+              value="1"
+              name="rate"
+            />
+            <label class="options__value" for="choice1">1</label>
+          </div>
+          <div class="options__option">
+            <input
+              id="choice2"
+              class="options__input"
+              type="radio"
+              value="2"
+              name="rate"
+            />
+            <label class="options__value" for="choice2">2</label>
+          </div>
+          <div class="options__option">
+            <input
+              id="choice3"
+              class="options__input"
+              type="radio"
+              value="3"
+              name="rate"
+            />
+            <label class="options__value" for="choice3">3</label>
+          </div>
+          <div class="options__option">
+            <input
+              id="choice4"
+              class="options__input"
+              type="radio"
+              value="4"
+              name="rate"
+            />
+            <label class="options__value" for="choice4">4</label>
+          </div>
+          <div class="options__option">
+            <input
+              id="choice5"
+              class="options__input"
+              type="radio"
+              value="5"
+              name="rate"
+            />
+            <label class="options__value" for="choice5">5</label>
+          </div>
+        </fieldset>
 
-        <input class="circle circle--number" type="button" value="3" />
-        <input class="circle circle--number" type="button" value="4" />
-        <input class="circle circle--number" type="button" value="5" />
+        <button class="rating__button" type="submit" id="button-submit">
+          Submit
+        </button>
+      </form>
+
+      <div id="submitted" class="rating rating--center rating--disable">
+        <img
+          src="./images/illustration-thank-you.svg"
+          alt="Illustration thank you"
+        />
+
+        <p class="rating__choice">
+          You selected <span id="choice">1</span> out of 5
+        </p>
+        <h1 class="rating__title">Thank you!</h1>
+        <p class="rating__paragraph rating__paragraph--center">
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
       </div>
+    </main>
 
-      <button class="rating__button" type="button" id="button-submit">
-        Submit
-      </button>
-    </div>
-
-    <footer class="attribution">
+    <footer class="footer">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      <a
+        class="footer__link"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
         >Frontend Mentor</a
       >. Coded by
-      <a href="https://www.frontendmentor.io/profile/NahuelEF" target="_blank"
+      <a
+        class="footer__link"
+        href="https://www.frontendmentor.io/profile/NahuelEF"
+        target="_blank"
         >Nahuel Fedele</a
       >.
     </footer>
