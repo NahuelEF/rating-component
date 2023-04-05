@@ -1,37 +1,21 @@
-let buttons = document.querySelectorAll("input");
-var number = 0;
-var button_submit = document.getElementById("button-submit");
-var rating_container = document.getElementById("rating-container");
+const form = document.getElementById("rating-container");
+const choice = document.getElementById("choice");
+const submitted = document.getElementById("submitted");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", function () {
-    buttons.forEach((btn) => btn.classList.remove("circle--active"));
-    this.classList.add("circle--active");
-    number = button.value;
-  });
-});
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  let output = "";
 
-button_submit.addEventListener("click", function () {
-  if (number > 0) {
-    rating_container.style.alignItems = "center";
-    rating_container.innerHTML = `
-    <span class="rating__img">
-        <object
-            data="./images/illustration-thank-you.svg"
-            type="image/svg+xml"
-            title="Icon Star">
-        </object>
-    </span>
-    <span class="rating__choice">
-        You selected ${number} out of 5
-    </span>
-    <h1 class="rating__title">
-        Thank you!
-    </h1>
-    <p class="rating__paragraph rating__paragraph--center">
-        We appreciate you taking the time to give a rating. If you ever need
-        more support, don’t hesitate to get in touch!
-    </p>
-  `;
+  for (const entry of data) {
+    output = entry[1];
+  }
+
+  if (output >= 1) {
+    choice.textContent = output;
+    form.classList.add("rating--disable");
+    submitted.classList.remove("rating--disable");
+  } else {
+    alert("You must choose a number.");
   }
 });
